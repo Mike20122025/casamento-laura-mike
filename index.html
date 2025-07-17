@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Laura & Mike - Nosso Casamento</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff0f5;
+      color: #333;
+    }
+    header {
+      background: linear-gradient(to right, #228B22, #ff69b4);
+      color: white;
+      padding: 3rem 1rem;
+      text-align: center;
+    }
+    h1 {
+      margin: 0;
+      font-size: 3rem;
+    }
+    .frase {
+      font-style: italic;
+      margin-top: 1rem;
+    }
+    section {
+      padding: 2rem;
+      max-width: 800px;
+      margin: auto;
+    }
+    .countdown {
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      color: #d2691e;
+    }
+    .evento-info {
+      background-color: #ffe4e1;
+      padding: 1.5rem;
+      border-radius: 10px;
+      margin-bottom: 2rem;
+    }
+    .galeria img {
+      width: 100%;
+      max-width: 300px;
+      margin: 0.5rem;
+      border-radius: 10px;
+    }
+    .rsvp-form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    input, textarea, button {
+      padding: 0.8rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background-color: #ff69b4;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      border: none;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background-color: #ffe4e1;
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Laura & Mike</h1>
+    <div class="frase">"É justo que muito custe o que muito vale"</div>
+  </header>
+
+  <section>
+    <h2>Contagem Regressiva</h2>
+    <div class="countdown" id="countdown"></div>
+
+    <h2>Informações do Evento</h2>
+    <div class="evento-info">
+      <p><strong>Data:</strong> 20 de Dezembro de 2025</p>
+      <p><strong>Horário:</strong> 18:30h</p>
+      <p><strong>Local:</strong> Paróquia Nossa Senhora da Conceição - Praça Silvio Romero, Tatuapé</p>
+    </div>
+
+    <h2>Lista de Presentes</h2>
+    <p>Você pode nos presentear por:</p>
+    <ul>
+      <li><strong>Loja:</strong> <a href="#">Clique aqui para acessar nossa lista na loja</a></li>
+      <li><strong>PIX:</strong> lauraemike@pix.com</li>
+    </ul>
+
+    <h2>Galeria de Fotos</h2>
+    <div class="galeria">
+      <img src="https://via.placeholder.com/300x200?text=Foto+1" alt="Foto 1">
+      <img src="https://via.placeholder.com/300x200?text=Foto+2" alt="Foto 2">
+      <img src="https://via.placeholder.com/300x200?text=Foto+3" alt="Foto 3">
+    </div>
+
+    <h2>Confirme sua presença</h2>
+    <form class="rsvp-form">
+      <input type="text" placeholder="Seu nome" required />
+      <input type="email" placeholder="Seu email" required />
+      <textarea placeholder="Deixe uma mensagem..." rows="4"></textarea>
+      <button type="submit">Confirmar Presença</button>
+    </form>
+  </section>
+
+  <footer>
+    Com amor, Laura & Mike ❤️
+  </footer>
+
+  <script>
+    // Contagem regressiva
+    const targetDate = new Date('2025-12-20T18:30:00');
+    const countdownElement = document.getElementById('countdown');
+
+    function updateCountdown() {
+      const now = new Date();
+      const diff = targetDate - now;
+
+      if (diff <= 0) {
+        countdownElement.textContent = "É hoje! 💍";
+        return;
+      }
+
+      const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const horas = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutos = Math.floor((diff / 1000 / 60) % 60);
+      const segundos = Math.floor((diff / 1000) % 60);
+
+      countdownElement.textContent = `${dias}d ${horas}h ${minutos}m ${segundos}s`;
+    }
+
+    setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>
